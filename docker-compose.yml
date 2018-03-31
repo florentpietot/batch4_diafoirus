@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres:
+    build: ./postgres
+    container_name: mimic
+    volumes:
+      - ./mimic_data/csv:/mimic_data
+      - ./pg_data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: mimic
+      MIMIC_PASSWORD: mimic
+      BUILD_MIMIC: 1
